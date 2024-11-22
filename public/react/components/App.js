@@ -33,6 +33,7 @@ export const App = () => {
     }
   }
 
+  // dependecies array makes sure to fetch data when a new article is added
   useEffect(() => {
     if (singlePage) {
       fetchSinglePage(pageSlug);

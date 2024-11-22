@@ -21,6 +21,7 @@ export const Page = (props) => {
       {console.log("page: ", props.page)}
       <h2>{props.page.title}</h2>
       {props.page.author ? (
+        // checkif author is present
         <h3>Author: {props.page.author.name}</h3>
       ) : (
         <p>Author Unknown</p>

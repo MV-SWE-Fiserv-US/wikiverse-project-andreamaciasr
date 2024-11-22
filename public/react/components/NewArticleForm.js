@@ -37,7 +37,6 @@ export const NewArticleForm = ({setIsAddingArticle}) => {
           articleData
         );
       } else {
-        // Handle errors
         console.error("Failed to submit article - article data:", articleData);
       }
     } catch (error) {
