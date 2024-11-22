@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import apiURL from "../api";
 
-export const NewArticleForm = () => {
+export const NewArticleForm = ({setIsAddingArticle}) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [name, setName] = useState("");
@@ -14,10 +14,10 @@ export const NewArticleForm = () => {
     const articleData = {
       title,
       content,
-    
-        name,
-        email,
-    
+
+      name,
+      email,
+
       tags: tags.split(" ").join(" "),
     };
 
@@ -31,7 +31,10 @@ export const NewArticleForm = () => {
       });
       if (response.ok) {
         // Handle successful submission
-        console.log("Article submitted successfully, article data:", articleData);
+        console.log(
+          "Article submitted successfully, article data:",
+          articleData
+        );
       } else {
         // Handle errors
         console.error("Failed to submit article - article data:", articleData);
@@ -42,6 +45,7 @@ export const NewArticleForm = () => {
   }
 
   return (
+    <>
     <form onSubmit={handleSubmit}>
       <div>
         <label>Title:</label>
@@ -84,7 +88,7 @@ export const NewArticleForm = () => {
       </div>
       <button type="submit">Submit</button>
     </form>
+    <button onClick={() => setIsAddingArticle()}>Back to Wiki List</button>
+    </>
   );
 };
-
-

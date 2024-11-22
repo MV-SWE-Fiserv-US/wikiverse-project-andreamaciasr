@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { PagesList } from "./PagesList";
 import { Page } from "./Page";
-import { NewArticleForm } from './NewArticleForm'; 
+import { NewArticleForm } from "./NewArticleForm";
 
 // import and prepend the api url to any fetch calls
 import apiURL from "../api";
@@ -50,7 +50,7 @@ export const App = () => {
           setSinglePage={setSinglePage}
         />
       ) : isAddingArticle ? (
-        <NewArticleForm />
+        <NewArticleForm setIsAddingArticle={setIsAddingArticle}/>
       ) : (
         <>
           <h1>WikiVerse</h1>
@@ -61,11 +61,12 @@ export const App = () => {
             setPageSlug={setPageSlug}
             setSinglePage={setSinglePage}
           />
+          <button onClick={() => setIsAddingArticle(!isAddingArticle)}>
+            Add an New Article
+          </button>
         </>
       )}
-      <button onClick={() => setIsAddingArticle(!isAddingArticle)}>
-        Add an New Article
-      </button>
+      
     </main>
   );
 };
