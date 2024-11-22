@@ -22,6 +22,7 @@ export const Page = (props) => {
         <p>No tags yet</p>
       )}
       <p>Date: {new Date(props.page.createdAt).toLocaleDateString()}</p>
+      <button onClick={() => props.setSinglePage()}>Back to Wiki List</button>
     </>
   );
 };

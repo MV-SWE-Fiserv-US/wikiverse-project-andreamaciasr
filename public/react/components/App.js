@@ -42,7 +42,7 @@ export const App = () => {
   return (
     <main>
       {singlePage ? (
-        <Page page={singlePageData} key={pageSlug}/>
+        <Page page={singlePageData} key={pageSlug} setSinglePage={setSinglePage}/>
       ) : (
         <>
         <h1>WikiVerse</h1>
