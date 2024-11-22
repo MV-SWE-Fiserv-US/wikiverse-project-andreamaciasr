@@ -27,10 +27,11 @@ export const NewArticleForm = ({setIsAddingArticle}) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(articleData),
+        body: JSON.stringify(articleData)
       });
       if (response.ok) {
-        // Handle successful submission
+        // Handle successful submission and return tu wiki view
+        setIsAddingArticle();
         console.log(
           "Article submitted successfully, article data:",
           articleData

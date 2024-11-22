@@ -39,7 +39,7 @@ export const App = () => {
     } else {
       fetchPages();
     }
-  }, [singlePage, pageSlug]);
+  }, [singlePage, pageSlug, isAddingArticle]);
 
   return (
     <main>
