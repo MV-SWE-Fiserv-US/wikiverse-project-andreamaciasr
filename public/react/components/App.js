@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { PagesList } from "./PagesList";
 import { Page } from "./Page";
+import { NewArticleForm } from './NewArticleForm'; 
 
 // import and prepend the api url to any fetch calls
 import apiURL from "../api";
@@ -10,6 +11,7 @@ export const App = () => {
   const [singlePage, setSinglePage] = useState(false);
   const [singlePageData, setSinglePageData] = useState({});
   const [pageSlug, setPageSlug] = useState(null);
+  const [isAddingArticle, setIsAddingArticle] = useState(false);
 
   async function fetchPages() {
     try {
@@ -42,20 +44,28 @@ export const App = () => {
   return (
     <main>
       {singlePage ? (
-        <Page page={singlePageData} key={pageSlug} setSinglePage={setSinglePage}/>
-      ) : (
-        <>
-        <h1>WikiVerse</h1>
-        <h2>An interesting 📚</h2>
-        <PagesList
-          pages={pages}
-          setSinglePageData={setSinglePageData}
-          setPageSlug={setPageSlug}
+        <Page
+          page={singlePageData}
+          key={pageSlug}
           setSinglePage={setSinglePage}
         />
+      ) : isAddingArticle ? (
+        <NewArticleForm />
+      ) : (
+        <>
+          <h1>WikiVerse</h1>
+          <h2>An interesting 📚</h2>
+          <PagesList
+            pages={pages}
+            setSinglePageData={setSinglePageData}
+            setPageSlug={setPageSlug}
+            setSinglePage={setSinglePage}
+          />
         </>
       )}
-
+      <button onClick={() => setIsAddingArticle(!isAddingArticle)}>
+        Add an New Article
+      </button>
     </main>
   );
 };

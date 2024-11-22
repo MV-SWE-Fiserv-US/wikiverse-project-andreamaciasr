@@ -3,7 +3,7 @@ import React from "react";
 export const Page = (props) => {
   return (
     <>
-      {console.log(props.page)}
+      {console.log("page: ", props.page)}
       <h2>{props.page.title}</h2>
       {props.page.author ? (
         <h3>Author: {props.page.author.name}</h3>
